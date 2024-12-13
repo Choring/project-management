@@ -14,6 +14,7 @@ declare global {
 
     interface StartedProjectProps {
         onStartAddProject: () => void;
+        projects?:ProjectData[]
     }
 
     type ProjectState = {
@@ -22,6 +23,7 @@ declare global {
     }
 
     interface ProjectData {
+        id?: number;
         title: string | undefined,
         description: string | undefined;
         dueDate: string | null;
