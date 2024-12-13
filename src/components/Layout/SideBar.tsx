@@ -1,10 +1,11 @@
+import { Button } from "../Button"
 
-export const SideBar = () => {
+export const SideBar = ({ onStartAddProject }: StartedProjectProps) => {
   return (
-    <aside className="w-[30%] border border-red-200">
-        <h2>Your Projects</h2>
+    <aside className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl">
+        <h2 className="mb-8 font-bold uppercase md:text-xl text-stone-200">Your Projects</h2>
         <div>
-            <button>+ 프로젝트 추가</button>
+            <Button onClick={onStartAddProject}>+ 새로운 프로젝트</Button>
         </div>
         <ul>
             
