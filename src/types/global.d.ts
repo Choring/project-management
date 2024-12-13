@@ -2,9 +2,9 @@ export {};
 
 declare global {
     // interface 이름 {} or type 이름 = {}
-    interface InputProps {
+    interface InputProps extends React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
         label: string;
-        textarea?: string;
+        textarea?: string | boolean;
     }
 
     type ButtonProps = {
@@ -19,5 +19,11 @@ declare global {
     type ProjectState = {
         selectedProjectId: string | null | undefined;
         projects: Array<Project>
+    }
+
+    interface ProjectData {
+        title: string | undefined,
+        description: string | undefined;
+        dueDate: string | null;
     }
 }
