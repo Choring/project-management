@@ -28,4 +28,12 @@ declare global {
         description: string | undefined;
         dueDate: string | null;
     }
+
+    interface ModalProps {
+        children: React.ReactNode;
+        buttonCaption: string
+    }
+    interface ModalHandle {
+        open: () => void;
+    }
 }
