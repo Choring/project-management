@@ -12,6 +12,15 @@ function App() {
     projects: []
   });
 
+  const handleSelectProject = (id: string) => {
+    setProjectdState(prevState => {
+      return {
+        ...prevState,
+        selectedProjectId: id,
+      };
+    });
+  }
+
   const handleStartAddProject = () => {
     setProjectdState(prevState => {
       return {
@@ -60,7 +69,10 @@ function App() {
     <>
       <Header />
       <main className="flex gap-8 h-screen">
-        <SideBar onStartAddProject={handleStartAddProject} projects={projectedState.projects} />
+        <SideBar 
+          onStartAddProject={handleStartAddProject} 
+          projects={projectedState.projects} 
+          onSelectProject={(id:string) => handleSelectProject(id)} />
         {content}
       </main>
       <Footer />

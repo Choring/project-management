@@ -14,7 +14,10 @@ declare global {
 
     interface StartedProjectProps {
         onStartAddProject: () => void;
-        projects?:ProjectData[]
+        projects?:ProjectData[];
+        onSelectProject?: (id) => void;
+        selectedProjectId?: number
+
     }
 
     type ProjectState = {
@@ -26,7 +29,7 @@ declare global {
         id?: number;
         title: string | undefined,
         description: string | undefined;
-        dueDate: string | null;
+        dueDate: Date | string | null;
     }
 
     interface ModalProps {
@@ -35,5 +38,9 @@ declare global {
     }
     interface ModalHandle {
         open: () => void;
+    }
+
+    interface selectProjectProps {
+       project: ProjectData
     }
 }
