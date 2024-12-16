@@ -1,4 +1,4 @@
-import { Tasks } from "./Tasks";
+import { Tasks } from "../Tasks/Tasks";
 
 
 export const SelectProject = ({project, onDelete}: SelectProjectProps) => {

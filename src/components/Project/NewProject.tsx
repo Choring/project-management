@@ -1,6 +1,6 @@
 import { useRef } from "react"
-import { Input } from "./Input"
-import { Modal } from "./Modal";
+import { Input } from "../Input"
+import { Modal } from "../Modal/Modal";
 interface Props {
   onAdd: ({ title, description, dueDate }: ProjectData) => void;
   onCancel: () => void;

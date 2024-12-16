@@ -2,9 +2,9 @@ import { useState } from "react"
 import { Footer } from "./components/Layout/Footer"
 import { Header } from "./components/Layout/Header"
 import { SideBar } from "./components/Layout/SideBar"
-import { NewProject } from "./components/NewProject"
-import { NoProject } from "./components/NoProject"
-import { SelectProject } from "./components/SelectProject"
+import { NewProject } from "./components/Project/NewProject"
+import { NoProject } from "./components/Project/NoProject"
+import { SelectProject } from "./components/Project/SelectProject"
 
 
 function App() {
