@@ -1,7 +1,7 @@
 import { Tasks } from "../Tasks/Tasks";
 
 
-export const SelectProject = ({project, onDelete}: SelectProjectProps) => {
+export const SelectProject = ({tasks, project, onDelete, onAddTask, onDeleteTask}: SelectProjectProps) => {
     let formattedDate = "Invalid date"; // 기본값을 "Invalid date"로 설정
   
     if (project.dueDate && typeof project.dueDate === "string") {
@@ -26,7 +26,7 @@ export const SelectProject = ({project, onDelete}: SelectProjectProps) => {
                 <p className="mb-4 text-stone-400">{formattedDate}</p>
                 <p className="text-stone-600 whitespace-pre-wrap">{project.description}</p>
             </header>
-            <Tasks />
+            <Tasks onAdd={onAddTask} onDelete={onDeleteTask} tasks={tasks} />
         </div>
     )
 }

@@ -22,7 +22,8 @@ declare global {
 
     type ProjectState = {
         selectedProjectId: string | null | undefined;
-        projects: Array<Project>
+        projects: Array<Project>;
+        tasks: TasksProps[];
     }
 
     interface ProjectData {
@@ -40,8 +41,22 @@ declare global {
         open: () => void;
     }
 
+    type TasksProps = {
+        id: number;
+        text: string;
+    }
+
     interface SelectProjectProps {
-       project: ProjectData;
-       onDelete: () => void;
+        tasks:TasksProps[];
+        project: ProjectData;
+        onDelete: () => void;
+        onAddTask: (text:string) => void;
+        onDeleteTask: () => void;
+    }
+
+    interface TaskProps {
+        tasks?: TasksProps[];
+        onAdd?: (enteredTask: string) => void;
+        onDelete?: () => void;
     }
 }
