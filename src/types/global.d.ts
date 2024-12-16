@@ -40,7 +40,7 @@ declare global {
         open: () => void;
     }
 
-    interface selectProjectProps {
+    interface SelectProjectProps {
        project: ProjectData
     }
 }

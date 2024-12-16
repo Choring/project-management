@@ -22,7 +22,7 @@ export const SideBar = ({ onStartAddProject, projects, onSelectProject, selected
                 <li key={project.id}>
                   <button 
                     className={cssClasses}
-                    onClick={onSelectProject}
+                    onClick={() => onSelectProject?.(project.id)}
                   >
                     {project.title}
                   </button>

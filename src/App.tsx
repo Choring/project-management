@@ -4,6 +4,7 @@ import { Header } from "./components/Layout/Header"
 import { SideBar } from "./components/Layout/SideBar"
 import { NewProject } from "./components/NewProject"
 import { NoProject } from "./components/NoProject"
+import { SelectProject } from "./components/SelectProject"
 
 
 function App() {
@@ -39,9 +40,7 @@ function App() {
       };
     });
   }
-
-  let content;
-
+  
   const handleAddProject = (projectData: ProjectData) => {
     setProjectdState(prevState => {
       const projectId = Math.random();
@@ -57,6 +56,10 @@ function App() {
       }
     });
   }
+
+  const selectedProject = projectedState.projects.find(project => project.id === projectedState.selectedProjectId);
+
+  let content = <SelectProject project={selectedProject} />
 
   if(projectedState.selectedProjectId === null) {
     content = <NewProject onAdd={handleAddProject} onCancel={handleCanceAddProject} />
