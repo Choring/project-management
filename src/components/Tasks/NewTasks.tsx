@@ -1,7 +1,7 @@
-import { useRef, useState } from "react"
+import { useState } from "react"
 
 
-export const NewTasks = ({onAdd}: TaskProps) => {
+export const NewTasks = ({onAdd}: NewTaskProps) => {
   const [enteredTask, setEnteredTask] = useState<string>("");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -9,6 +9,10 @@ export const NewTasks = ({onAdd}: TaskProps) => {
   }
 
   const handleClick = () => {
+    if(enteredTask === "") {
+      return console.log("없다");
+    }
+
     if (onAdd) {
       onAdd(enteredTask); 
     }

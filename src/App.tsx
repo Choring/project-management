@@ -30,11 +30,18 @@ function App() {
     });
   }
 
-  const handleDeleteTask = () => {
-
+  const handleDeleteTask = (id:number) => {
+    setProjectdState(prevState => {
+      return {
+        ...prevState,
+        tasks: prevState.tasks.filter(
+          (task) => task.id !== id
+        ),
+      };
+    });
   }
 
-  const handleSelectProject = (id: string) => {
+  const handleSelectProject = (id:number) => {
     setProjectdState(prevState => {
       return {
         ...prevState,
@@ -44,7 +51,7 @@ function App() {
   }
 
   const handleStartAddProject = () => {
-    setProjectdState(prevState => {
+    setProjectdState((prevState) => {
       return {
         ...prevState,
         selectedProjectId: null,
@@ -112,7 +119,9 @@ function App() {
         <SideBar 
           onStartAddProject={handleStartAddProject} 
           projects={projectedState.projects} 
-          onSelectProject={(id:string) => handleSelectProject(id)} />
+          onSelectProject={(id:number) => handleSelectProject(id)} 
+          selectedProjectId={projectedState.selectedProjectId}
+        />
         {content}
       </main>
       <Footer />

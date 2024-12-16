@@ -2,6 +2,13 @@ export {};
 
 declare global {
     // interface 이름 {} or type 이름 = {}
+
+    type ProjectState = {
+        selectedProjectId: number | null |undefined;
+        projects: Array<Project>;
+        tasks: TasksProps[];
+    }
+
     interface InputProps extends React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
         label: string;
         textarea?: string | boolean;
@@ -14,16 +21,9 @@ declare global {
 
     interface StartedProjectProps {
         onStartAddProject: () => void;
-        projects?:ProjectData[];
+        projects?: ProjectData[];
         onSelectProject?: (id) => void;
-        selectedProjectId?: number
-
-    }
-
-    type ProjectState = {
-        selectedProjectId: string | null | undefined;
-        projects: Array<Project>;
-        tasks: TasksProps[];
+        selectedProjectId?: number | undefined | null;
     }
 
     interface ProjectData {
@@ -51,12 +51,16 @@ declare global {
         project: ProjectData;
         onDelete: () => void;
         onAddTask: (text:string) => void;
-        onDeleteTask: () => void;
+        onDeleteTask: (id:number) => void;
     }
 
     interface TaskProps {
         tasks?: TasksProps[];
         onAdd?: (enteredTask: string) => void;
-        onDelete?: () => void;
+        onDelete: (id:number) => void;
+    }
+
+    interface NewTaskProps {
+        onAdd?: (enteredTask: string) => void;
     }
 }
