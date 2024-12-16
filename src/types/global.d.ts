@@ -41,6 +41,7 @@ declare global {
     }
 
     interface SelectProjectProps {
-       project: ProjectData
+       project: ProjectData;
+       onDelete: () => void;
     }
 }
