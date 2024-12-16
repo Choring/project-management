@@ -1,3 +1,4 @@
+import { Tasks } from "./Tasks";
 
 
 export const SelectProject = ({project, onDelete}: SelectProjectProps) => {
@@ -25,6 +26,7 @@ export const SelectProject = ({project, onDelete}: SelectProjectProps) => {
                 <p className="mb-4 text-stone-400">{formattedDate}</p>
                 <p className="text-stone-600 whitespace-pre-wrap">{project.description}</p>
             </header>
+            <Tasks />
         </div>
     )
 }
